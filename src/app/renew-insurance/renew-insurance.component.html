@@ -1,0 +1,55 @@
+<p>renew-inurance works!</p>
+
+
+<div class="plan-page-div">
+    <h1 class="plan-page-header">Renew Plan Page</h1>
+    <form [formGroup]="renew_plan_page_form" class="plan-page-form" (ngSubmit)="submitRenewPlanDetails()">
+        <div class="plan-content">
+            <h2>Choose your Plan</h2>
+            <div>
+                <input type="radio" value="third_party_liability" id="third_party_liability" formControlName="insurancePlan">
+                <label for="third_party_liability">Third Party liability</label>
+            </div>
+            <div>
+                <input type="radio" value="comprehensive" id="comprehensive" formControlName="insurancePlan">
+                <label for="comprehensive">Comprehensive</label>
+            </div>
+        </div>
+        <!-- <button (click)="getRandomInt(10000000000000000000,99999999999999999999)">Random Number Generator</button> -->
+        <div class="year-content">
+            <h2>Choose Number Of Years</h2>
+            <p>
+                <select formControlName="numberOfYears">
+                    <option disabled>Select No Of Years</option>
+                    <option value=null>Choose Year</option>
+                    
+                    <option *ngFor="let year of year_list">{{year}}</option>
+                </select>
+            </p>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div class="plan-page-table">
+        <h1>My Products</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>policyNo</th>
+                    <th>amountPaid</th>
+                    <th>policyDate</th>
+                    <th>insurancePlan</th>
+                    <th>numberOfYears</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let plan of renew_plan_page_array" style="background-color: gray; height: 10rem;">
+                    <td>{{plan.policyNo}}</td>
+                    <td>{{plan.amountPaid}}</td>
+                    <td>{{plan.policyDate}}</td>
+                    <td>{{plan.insurancePlan}}</td>
+                    <td>{{plan.numberOfYears}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

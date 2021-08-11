@@ -1,0 +1,64 @@
+<p>verify-details-page works!</p>
+<button (click)="refresh()">Refresh</button>
+<div class="plan-page-table">
+    <h1>My Products</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>policyNo</th>
+                <th>amountPaid</th>
+                <th>policyDate</th>
+                <th>insurancePlan</th>
+                <th>numberOfYears</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let plan of plan_page_array" style="background-color: lightskyblue; height: 10rem;">
+                <td>{{plan.policyNo}}</td>
+                <td>{{plan.amountPaid}}</td>
+                <td>{{plan.policyDate}}</td>
+                <td>{{plan.insurancePlan}}</td>
+                <td>{{plan.numberOfYears}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <h1>{{variable}}</h1> -->
+<div class="vehicle-detail-table">
+    <p>view-products works!</p>
+    <h1>My Products</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>manufacturer_name</th>
+                <th>model_name</th>
+                <th>driving_license</th>
+                <th>purchase_date</th>
+                <th>registration_no</th>
+                <th>engine_no</th>
+                <th>chassis_no</th>
+                <th>email_id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- {{vehicle_detail_list[0].registration_no}} -->
+            <tr *ngFor="let vehicle of vehicle_detail_array" style="background-color:lightblue; height: 10rem;">
+                <!-- {{vehicle.registrationNo}}   -->
+                <!-- HellO -->
+                <td>{{vehicle.manufacturerName}}</td>
+                <td>{{vehicle.modelName}}</td>
+                <td>{{vehicle.drivingLicense}}</td>
+                <td>{{vehicle.purchaseDate}}</td>
+                <td>{{vehicle.registrationNo}}</td>
+                <td>{{vehicle.engineNo}}</td>
+                <td>{{vehicle.chassisNo}}</td>
+                <td>{{vehicle.emailId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+{{today}}
+<h1>end</h1>

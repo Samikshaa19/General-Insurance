@@ -1,0 +1,32 @@
+<p>show-vehicle-details works!</p>
+<div class="vehicle-detail-table">
+    <p>view-products works!</p>
+    <h1>My Products</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>manufacturer_name</th>
+                <th>model_name</th>
+                <th>driving_license</th>
+                <th>purchase_date</th>
+                <th>registration_no</th>
+                <th>engine_no</th>
+                <th>chassis_no</th>
+                <th>email_id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vehicle of vehicle_detail_list" style="background-color: aquamarine; height: 10rem;">
+
+                <td>{{vehicle.manufacturerName}}</td>
+                <td>{{vehicle.modelName}}</td>
+                <td>{{vehicle.drivingLicense}}</td>
+                <td>{{vehicle.purchaseDate}}</td>
+                <td>{{vehicle.registrationNo}}</td>
+                <td>{{vehicle.engineNo}}</td>
+                <td>{{vehicle.chassisNo}}</td>
+                <td>{{vehicle.emailId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

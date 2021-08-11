@@ -1,0 +1,383 @@
+<div class="vehicle-detail-page-div">
+    <!-- Store Vehicle Details -->
+    <!-- <form [formGroup]="vehicle_detail_form" (ngSubmit)="submitVehicleDetails()">
+    <div class="container">
+        <div class="item">
+            <div class="head">
+                <h1 style="color: black;">Buy Insurance</h1>
+            </div>
+
+            <div class="form-check" id="vehicletype">
+                <input class="form-check-input" type="radio" name="vehicletype" id="flexRadioDefault1" value="four"
+                    formControlName="vehicletype">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Four Wheeler Insurance
+                </label>
+
+                <input class="form-check-input" type="radio" name="vehicletype" id="flexRadioDefault2" value="two"
+                    formControlName="vehicletype">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Two Wheeler Insurance
+                </label>
+            </div>
+            <div class="buyimage">
+                <img src="../../assets/insurance1.jpg">
+            </div>
+        </div>
+        <div class="item" id="text2">
+            <div class="form-floating mb-3" [ngClass]="{'has.error': vehicle_detail_form.get('manufacturer')?.errors &&
+            vehicle_detail_form.get('manufacturer')?.touched||vehicle_detail_form.get('manufacturer')?.dirty}">
+                <label for="floatingInput">Enter car/bike manufacturer</label><br>
+                <input type="text" class="form-control" id="floatingInput" formControlName="manufacturer">
+
+            </div>
+            <span class="help-block">
+                <div *ngIf="!manufacturer1?.valid && (manufacturer1?.dirty ||manufacturer1?.touched)">
+                    <div *ngIf="manufacturer1?.errors?.required">
+                        Manufacturer name is required
+                    </div>
+                </div>
+            </span>
+
+            <div class="form-floating mb-3">
+                <label for="floatingInput">Enter car/bike model</label><br>
+                <input type="text" class="form-control" id="floatingInput" formControlName="model">
+
+            </div>
+            <span class="help-block">
+                <div *ngIf="!model1?.valid && (model1?.dirty ||model1?.touched)">
+                    <div *ngIf="model1?.errors?.required">
+                        Model name is required
+                    </div>
+                </div>
+            </span>
+
+            <div class="form-floating mb-3">
+                <label for="floatingInput">Enter driving licence Number</label><br>
+                <input type="text" class="form-control" id="floatingInput" minlength="16" maxlength="16"
+                    formControlName="drivinglicense">
+            </div>
+            <span class="help-block">
+                <div *ngIf="!drivinglicense1?.valid && (drivinglicense1?.dirty ||drivinglicense1?.touched)">
+                    <div *ngIf="drivinglicense1?.errors?.required">
+                        Driving License Number is required
+                    </div>
+                    <div *ngIf="drivinglicense1?.errors?.minlength || drivinglicense1?.errors?.maxlength">
+                        Driving License Number should contain only 16 numbers .
+                    </div>
+                </div>
+            </span>
+            <div class="form-floating mb-3">
+                <label for="floatingInput">Enter purchase date</label><br>
+                <input type="text" class="form-control" id="floatingInput" formControlName="purchasedate">
+            </div>
+            <span class="help-block">
+                <div *ngIf="!purchasedate1?.valid && (purchasedate1?.dirty ||purchasedate1?.touched)">
+                    <div *ngIf="purchasedate1?.errors?.required">
+                        Purchase Date is required
+                    </div>
+                </div>
+            </span>
+            <div class="form-floating mb-3">
+                <label for="floatingInput">Enter Registration number</label><br>
+                <input type="text" class="form-control" id="floatingInput" minlength="10" maxlength="10"
+                    formControlName="registrationnumber">
+            </div>
+            <span class="help-block">
+                <div *ngIf="!registrationnumber1?.valid && (registrationnumber1?.dirty ||registrationnumber1?.touched)">
+                    <div *ngIf="registrationnumber1?.errors?.required">
+                        Registration License Number is required
+                    </div>
+                    <div *ngIf="registrationnumber1?.errors?.minlength || registrationnumber1?.errors?.maxlength">
+                        Registration Number should contain only 10 numbers .
+                    </div>
+                </div>
+            </span>
+
+            <div class="form-floating mb-3">
+                <label for="floatingInput">Enter Engine number</label><br>
+                <input type="text" class="form-control" id="floatingInput" minlength="11" maxlength="17"
+                    formControlName="enginenumber">
+            </div>
+            <span class="help-block">
+                <div *ngIf="!enginenumber1?.valid && (enginenumber1?.dirty ||enginenumber1?.touched)">
+                    <div *ngIf="enginenumber1?.errors?.required">
+                        Engine License Number is required
+                    </div>
+                    <div *ngIf="enginenumber1?.errors?.minlength || enginenumber1?.errors?.maxlength">
+                        Engine Number should range between 11 to 17 .
+                    </div>
+                </div>
+            </span>
+            <div class="form-floating mb-3">
+                <label for="floatingInput">Enter Chassis number</label><br>
+                <input type="text" class="form-control" id="floatingInput" minlength="17" maxlength="17"
+                    formControlName="chassisnumber">
+            </div>
+            <span class="help-block">
+                <div *ngIf="!chassisnumber1?.valid && (chassisnumber1?.dirty ||chassisnumber1?.touched)">
+                    <div *ngIf="chassisnumber1?.errors?.required">
+                        Chassis License Number is required
+                    </div>
+                    <div *ngIf="chassisnumber1?.errors?.minlength || chassisnumber1?.errors?.maxlength">
+                        Chassis Number should should contain only 17 numbers.
+                    </div>
+                </div>
+            </span>
+            <br>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</form> -->
+    <form [formGroup]="vehicle_detail_form" (ngSubmit)="submitVehicleDetails()" novalidate>
+        <div class="container">
+            <div class="item">
+                <div class="head">
+                    <h1 style="color: black;">Buy Insurance</h1>
+                </div>
+                <div class="form-check" id="vehicletype">
+                    <input class="form-check-input" type="radio" id="flexRadioDefault1" value="four"
+                        formControlName="vehicleType">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Four Wheeler Insurance
+                    </label>
+
+                    <input class="form-check-input" type="radio" id="flexRadioDefault2" value="two"
+                        formControlName="vehicleType">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Two Wheeler Insurance
+                    </label>
+                </div>
+                <div class="buyimage">
+                    <img src="../../assets/insurance1.jpg">
+                </div>
+            </div>
+            <div class="item" id="text2">
+                <div class="form-floating mb-3" [ngClass]="{'has.error': vehicle_detail_form.get('manufacturerName')?.errors &&
+            vehicle_detail_form.get('manufacturerName')?.touched||vehicle_detail_form.get('manufacturerName')?.dirty}">
+                    <label for="floatingInput">Enter car/bike manufacturer</label><br>
+                    <input type="text" class="form-control" id="floatingInput" formControlName="manufacturerName">
+                </div>
+                <span class="help-block">
+                    <div *ngIf="!manufacturer1?.valid && (manufacturer1?.dirty ||manufacturer1?.touched)">
+                        <div *ngIf="manufacturer1?.errors?.required">
+                            Manufacturer name is required
+                        </div>
+                    </div>
+                </span>
+
+                <div class="form-floating mb-3">
+                    <label for="floatingInput">Enter car/bike model</label><br>
+                    <input type="text" class="form-control" id="floatingInput" formControlName="modelName">
+                </div>
+                <span class="help-block">
+                    <div *ngIf="!model1?.valid && (model1?.dirty ||model1?.touched)">
+                        <div *ngIf="model1?.errors?.required">
+                            Model name is required
+                        </div>
+                    </div>
+                </span>
+
+                <div class="form-floating mb-3">
+                    <label for="floatingInput">Enter driving licence Number</label><br>
+                    <input type="text" class="form-control" id="floatingInput" minlength="16" maxlength="16"
+                        formControlName="drivingLicense">
+                </div>
+                <span class="help-block">
+                    <div *ngIf="!drivinglicense1?.valid && (drivinglicense1?.dirty ||drivinglicense1?.touched)">
+                        <div *ngIf="drivinglicense1?.errors?.required">
+                            Driving License Number is required
+                        </div>
+                        <div *ngIf="drivinglicense1?.errors?.minlength || drivinglicense1?.errors?.maxlength">
+                            Driving License Number should contain only 16 numbers .
+                        </div>
+                    </div>
+                </span>
+                <div class="form-floating mb-3">
+                    <label for="floatingInput">Enter purchase date</label><br>
+                    <input type="text" class="form-control" id="floatingInput" formControlName="purchaseDate">
+                </div>
+                <span class="help-block">
+                    <div *ngIf="!purchasedate1?.valid && (purchasedate1?.dirty ||purchasedate1?.touched)">
+                        <div *ngIf="purchasedate1?.errors?.required">
+                            Purchase Date is required
+                        </div>
+                    </div>
+                </span>
+                <div class="form-floating mb-3">
+                    <label for="floatingInput">Enter Registration number</label><br>
+                    <input type="text" class="form-control" id="floatingInput" minlength="10" maxlength="10"
+                        formControlName="registrationNo">
+                </div>
+                <span class="help-block">
+                    <div
+                        *ngIf="!registrationnumber1?.valid && (registrationnumber1?.dirty ||registrationnumber1?.touched)">
+                        <div *ngIf="registrationnumber1?.errors?.required">
+                            Registration License Number is required
+                        </div>
+                        <div *ngIf="registrationnumber1?.errors?.minlength || registrationnumber1?.errors?.maxlength">
+                            Registration Number should contain only 10 numbers .
+                        </div>
+                    </div>
+                </span>
+                <div class="form-floating mb-3">
+                    <label for="floatingInput">Enter Engine number</label><br>
+                    <input type="text" class="form-control" id="floatingInput" minlength="11" maxlength="17"
+                        formControlName="engineNo">
+                </div>
+                <span class="help-block">
+                    <div *ngIf="!enginenumber1?.valid && (enginenumber1?.dirty ||enginenumber1?.touched)">
+                        <div *ngIf="enginenumber1?.errors?.required">
+                            Engine License Number is required
+                        </div>
+                        <div *ngIf="enginenumber1?.errors?.minlength || enginenumber1?.errors?.maxlength">
+                            Engine Number should range between 11 to 17 .
+                        </div>
+                    </div>
+                </span>
+                <div class="form-floating mb-3">
+                    <label for="floatingInput">Enter Chassis number</label><br>
+                    <input type="text" class="form-control" id="floatingInput" minlength="17" maxlength="17"
+                        formControlName="chassisNo">
+                </div>
+                <span class="help-block">
+                    <div *ngIf="!chassisnumber1?.valid && (chassisnumber1?.dirty ||chassisnumber1?.touched)">
+                        <div *ngIf="chassisnumber1?.errors?.required">
+                            Chassis License Number is required
+                        </div>
+                        <div *ngIf="chassisnumber1?.errors?.minlength || chassisnumber1?.errors?.maxlength">
+                            Chassis Number should should contain only 17 numbers.
+                        </div>
+                    </div>
+                </span>
+                <br>
+                <div class="col-auto">
+                    <button type="submit" [disabled]="!vehicle_detail_form.valid"
+                        class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Display Vehicle Details -->
+    <!-- <div class="vehicle-detail-table">
+    <p>view-products works!</p>
+    <h1>My Products</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>manufacturer_name</th>
+                <th>model_name</th>
+                <th>driving_license</th>
+                <th>purchase_date</th>
+                <th>registration_no</th>
+                <th>engine_no</th>
+                <th>chassis_no</th>
+                <th>email_id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vehicle of vehicle_detail_array">
+                <td>{{vehicle.manufacturer_name}}</td>
+                <td>{{vehicle.model_name}}</td>
+                <td>{{vehicle.driving_license}}</td>
+                <td>{{vehicle.purchase_date}}</td>
+                <td>{{vehicle.registration_no}}</td>
+                <td>{{vehicle.engine_no}}</td>
+                <td>{{vehicle.chassis_no}}</td>
+                <td>{{vehicle.email_id}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+    <div class="vehicle-detail-table">
+        <p>view-products works!</p>
+        <h1>My Products</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>manufacturer_name</th>
+                    <th>model_name</th>
+                    <th>driving_license</th>
+                    <th>purchase_date</th>
+                    <th>registration_no</th>
+                    <th>engine_no</th>
+                    <th>chassis_no</th>
+                    <th>email_id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- {{vehicle_detail_list[0].registration_no}} -->
+                <tr *ngFor="let vehicle of vehicle_detail_array" style="background-color: gray; height: 10rem;">
+                    <!-- {{vehicle.registrationNo}}   -->
+                    <!-- HellO -->
+                    <td>{{vehicle.manufacturerName}}</td>
+                    <td>{{vehicle.modelName}}</td>
+                    <td>{{vehicle.drivingLicense}}</td>
+                    <td>{{vehicle.purchaseDate}}</td>
+                    <td>{{vehicle.registrationNo}}</td>
+                    <td>{{vehicle.engineNo}}</td>
+                    <td>{{vehicle.chassisNo}}</td>
+                    <td>{{vehicle.emailId}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="plan-detail-page-div">
+    <h1 class="plan-page-header">Plan Page</h1>
+    <!-- Store Vehicle Details -->
+    <form [formGroup]="plan_page_form" class="plan-page-form" (ngSubmit)="submitPlanDetails()">
+        <div class="plan-content">
+            <h2>Choose your Plan</h2>
+            <div>
+                <input type="radio" value="third_party_liability" id="third_party_liability"
+                    formControlName="insurancePlan">
+                <label for="third_party_liability">Third Party liability</label>
+            </div>
+            <div>
+                <input type="radio" value="comprehensive" id="comprehensive" formControlName="insurancePlan">
+                <label for="comprehensive">Comprehensive</label>
+            </div>
+        </div>
+        <!-- <button (click)="getRandomInt(10000000000000000000,99999999999999999999)">Random Number Generator</button> -->
+        <div class="year-content">
+            <h2>Choose Number Of Years</h2>
+            <p>
+                <select formControlName="numberOfYears">
+                    <option disabled>Select No Of Years</option>
+                    <option value=null>Choose Year</option>
+
+                    <option *ngFor="let year of year_list">{{year}}</option>
+                </select>
+            </p>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <!-- Display Plan Details -->
+    <div class="plan-page-table">
+        <h1>My Products</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>policyNo</th>
+                    <th>amountPaid</th>
+                    <th>policyDate</th>
+                    <th>insurancePlan</th>
+                    <th>numberOfYears</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let plan of plan_page_array" style="background-color: gray; height: 10rem;">
+                    <td>{{plan.policyNo}}</td>
+                    <td>{{plan.amountPaid}}</td>
+                    <td>{{plan.policyDate}}</td>
+                    <td>{{plan.insurancePlan}}</td>
+                    <td>{{plan.numberOfYears}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<button></button>
