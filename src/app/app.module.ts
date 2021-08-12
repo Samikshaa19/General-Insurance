@@ -17,6 +17,7 @@ import { ShowVehicleDetailsComponent } from './show-vehicle-details/show-vehicle
 import { AddVehicleDetailsComponent } from './add-vehicle-details/add-vehicle-details.component';
 import { RenewInsuranceComponent } from './renew-insurance/renew-insurance.component';
 import { VerifyDetailsPageComponent } from './verify-details-page/verify-details-page.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VerifyDetailsPageComponent } from './verify-details-page/verify-details
     ShowVehicleDetailsComponent,
     AddVehicleDetailsComponent,
     RenewInsuranceComponent,
-    VerifyDetailsPageComponent
+    VerifyDetailsPageComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
