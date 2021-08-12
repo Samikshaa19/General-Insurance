@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { FormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -17,7 +17,9 @@ import { ShowVehicleDetailsComponent } from './show-vehicle-details/show-vehicle
 import { AddVehicleDetailsComponent } from './add-vehicle-details/add-vehicle-details.component';
 import { RenewInsuranceComponent } from './renew-insurance/renew-insurance.component';
 import { VerifyDetailsPageComponent } from './verify-details-page/verify-details-page.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { PaymentComponent } from './payment/payment.component';
+import { CalculatePremiumComponent } from './calculate-premium/calculate-premium.component';
+import { PayComponent } from './pay/pay.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,16 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     AddVehicleDetailsComponent,
     RenewInsuranceComponent,
     VerifyDetailsPageComponent,
-    AdminLoginComponent
+    PaymentComponent,
+    CalculatePremiumComponent,
+    PayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,121 @@
+<p>payment works!</p>
+
+<h2>Checkout Form</h2>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form [formGroup]="payment_detail_form" (ngSubmit)="submitPaymentDetails()">
+        <h3>Payment</h3>
+        <label for="fname">Accepted Cards</label>
+        <div class="icon-container">
+          <i class="fa fa-cc-visa" style="color:navy;"></i>
+          <i class="fa fa-cc-amex" style="color:blue;"></i>
+          <i class="fa fa-cc-mastercard" style="color:red;"></i>
+          <i class="fa fa-cc-discover" style="color:orange;"></i>
+        </div>
+        <p>
+          <label for="cardName">Account Holder Name</label>
+          <!-- <input type="text" id="cardName" name="cardName" minlenght="2" maxlength="50" pattern="^[0-9]$"
+            placeholder="Name on card"> -->
+          <input type="text" id="cardName" name="cardName" minlenght="2" maxlength="50" placeholder="Name on card"
+            formControlName="cardName" (keypress)="AccountNameValidator($event)" >
+        </p>
+        <div *ngIf="!cardName1?.valid && (cardName1?.dirty ||cardName1?.touched)">
+          <div *ngIf="cardName1?.errors?.required">
+            <span style="color:red">Account Holder Name is mandatory</span>
+          </div>
+          <div *ngIf="cardName1?.errors?.minlength || cardName1?.errors?.maxlength">
+            <span style="color:red">Name is not valid</span>
+          </div>
+        </div>
+        <p>
+          <label for="accountNo">Account Number</label>
+          <input type="text" id="accountNo" name="accountNo" minlenght="9" maxlength="20" placeholder="Account Number"
+            pattern='^[0-9]$' formControlName="accountNo" (keypress)="AccountNumberValidator($event)" >
+        </p>
+        <div *ngIf="!accountNo1?.valid && (accountNo1?.dirty ||accountNo1?.touched)">
+          <div *ngIf="accountNo1?.errors?.required">
+            <span style="color:red">Account number is mandatory</span>
+          </div>
+          <div *ngIf="accountNo1?.errors?.minlength || accountNo1?.errors?.maxlength">
+            <span style="color:red">Account Number Invalid</span>
+          </div>
+        </div>
+        <p>
+          <label for="ifscCode">IFSC Number</label>
+          <input type="text" id="ifscCode" name="ifscCode" minlength="11" maxlength=" 11" placeholder="IFSC Number"
+            formControlName="ifscCode" (keypress)="IfscCodeValidator($event)">
+        </p>
+        <div *ngIf="!ifscCode1?.valid && (ifscCode1?.dirty ||ifscCode1?.touched)">
+          <div *ngIf="ifscCode1?.errors?.required">
+            <span style="color:red">IFSC Number is mandatory .</span>
+          </div>
+          <div *ngIf="ifscCode1?.errors?.minlength || ifscCode1?.errors?.maxlength">
+            <span style="color:red">Ifsc Code should contain only 11 digits .</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-50">
+            <label for="expYear">Exp Year</label>
+            <!-- <input type="date" id="expYear" name="expYear" placeholder="Expiry Year" 
+              placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31" required> -->
+            <input type="text" id="expYear" name="expYear" placeholder="Expiry Year" formControlName="expYear" 
+            minlenght="10" maxlength="10">
+            <div *ngIf="!expYear1?.valid && (expYear1?.dirty ||expYear1?.touched)">
+              <div *ngIf="expYear1?.errors?.required">
+                <span style="color:red">Expiry Year is mandatory</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-50">
+            <label for="cvv">CVV</label>
+            <!-- <input type="text" id="cvv" name="cvv" placeholder="CVV" minlenght="3" maxlength="3"> -->
+            <input type="text" id="cvv" name="cvv" placeholder="CVV" formControlName="cvv" minlenght="3" maxlength="3"
+              (keypress)="CvvValidator($event)">
+            <div *ngIf="!cvv1?.valid && (cvv1?.dirty ||cvv1?.touched)">
+              <div *ngIf="cvv1?.errors?.required">
+                <span style="color:red">CVV is mandatory </span>
+              </div>
+            </div>
+          </div>
+          &nbsp; &nbsp;Your card details would be securedly saved for faster payments. Your CVV will not be stored.
+        </div>
+        <button type="submit" class="btn" [disabled]='!status'>PAY</button>
+        <p *ngIf='payment_status'>{{successful_payment}}</p>
+        <p *ngIf='!payment_status'>{{unsuccessful_payment}}</p>
+        <!-- <button type="submit" class="btn" [disabled]="!payment_detail_form.valid">PAY</button> -->
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Delete this ----------------START-------------------------------------------------- -->
+{{status}}<br>
+{{(this.payment_detail_form.value.cardName).length >= 2}}
+{{(this.payment_detail_form.value.accountNo).length >= 9}}
+{{(this.payment_detail_form.value.expYear).length >= 10}}
+{{(this.payment_detail_form.value.ifscCode).length >= 11}}
+{{(this.payment_detail_form.value.cvv).length >= 3}}
+<!-- Delete this ----------------END-------------------------------------------------- -->
+
+<div class="vehicle-detail-table">
+  <p>view-products works!</p>
+  <h1>My Products</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Account Number</th>
+        <th>IFSC Code</th>
+        <th>Email ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of payment_detail_array" style="background-color: gray; height: 10rem;">
+        <td>{{vehicle.accountNo}}</td>
+        <td>{{vehicle.ifscCode}}</td>
+        <td>{{vehicle.emailId}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <router-outlet></router-outlet> -->

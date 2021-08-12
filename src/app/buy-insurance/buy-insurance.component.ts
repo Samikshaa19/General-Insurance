@@ -99,12 +99,13 @@ export class BuyInsuranceComponent implements OnInit {
   }
 
   //================= VEHICLE DETAILS SUBMIT =================================================
+
   //------------------- submit Vehicle details -----------------------------------
   submitVehicleDetails() {
     this.vehicle_detail_obj = this.vehicle_detail_form.value
 
     localStorage.setItem("vehicle-details", JSON.stringify(this.vehicle_detail_obj));
-    // ------------------transfer details ---------------------------------------
+    // transfer details 
     // this.transfer_service.setVehicleDetails(this.vehicle_detail_obj) 
 
     this.vehicle_service.addVehicleDetails(this.vehicle_detail_obj).subscribe(data => {

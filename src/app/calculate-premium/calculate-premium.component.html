@@ -1,0 +1,44 @@
+<p>calculate-premium works!</p>
+
+
+<div class="header">
+    <h2>CALCULATION</h2>
+</div>
+<form [formGroup]="calculate_premium_form" (ngSubmit)="calculatePremium()">
+    <p>
+        <label for="">Car Model</label>
+        <input type="text" id ="model" name="model" formControlName="model"/>
+    </p>
+    <div *ngIf="!model1?.valid && (model1?.dirty ||model1?.touched)">
+        <div *ngIf="model1?.errors?.required">
+            <span style="color:red">Model Name is mandatory</span>
+        </div>
+    </div>
+
+    <p>
+        <label for="">Registration Year</label>
+        <input type="number" id ="year" name="year" formControlName="year"/>
+    </p>
+    <div *ngIf="!year1?.valid && (year1?.dirty ||year1?.touched)">
+        <div *ngIf="year1?.errors?.required">
+            <span style="color:red">Registration Year is mandatory</span>
+        </div>
+    </div>
+
+    <p>
+        <label for="">Price</label>
+        <input type="number" id ="price" name="price" formControlName="price"/>
+    </p>
+    <div *ngIf="!price1?.valid && (price1?.dirty ||price1?.touched)">
+        <div *ngIf="price1?.errors?.required">
+            <span style="color:red">Price is mandatory</span>
+        </div>
+    </div>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
+
+Premium Value : {{premium|currency:'INR'}}
+
+  
