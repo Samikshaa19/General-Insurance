@@ -1,0 +1,33 @@
+<p>Claim Working Here</p>
+<div class="ClaimView">
+    <h3>My Products</h3>
+    <table class="table" border="1px">
+        <thead>
+            <tr>
+                <th>CrId</th>
+                <th>RequestDate</th>
+                <th>Approval</th>
+                <th>ClaimAmount</th>
+                <th>reason</th>
+                <th>DamageProofUrl</th>  
+                <th>PolicyNo</th>                           
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let c of claim">
+                <td>{{c.crId}}</td>
+                <td>{{c.requestDate}}</td>
+                <td>{{c.approval}}</td>
+                <td>{{c.claimAmount}}</td>
+                <td>{{c.reason}}</td>
+                <td>{{c.damageProofUrl}}</td>
+                <td>{{c.policyNo}}</td>
+                <!-- <td>   -->
+                    <!-- <button [routerLink]="['/update/', product.id]">Update</button> -->
+                    <!-- <button  type="button" (click)="delete(product.id)">Remove</button>  -->
+                <!-- </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

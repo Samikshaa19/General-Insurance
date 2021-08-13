@@ -1,0 +1,92 @@
+<p>Create</p>
+<div>
+    <h1>Claim Your Insurance</h1>
+
+    <form [formGroup]="ClaimForm" (ngSubmit)="submitForm()" novalidate>
+        
+        <div class="form-group">
+            <label>Policy Number:</label>
+            <input type="string" formControlName="policyNo" class="form-control">
+            <!-- <div *ngIf= "!policyNo1?.valid && (policyNo1?.dirty || policyNo1?.touched)">
+                <small *ngIf="policyNo1?.errors?.required">
+                  <span style="color:red"> Your Policy Number Is Mandatory </span>
+                </small>
+            </div> -->
+        </div>
+
+
+        <div class="form-group">
+            <label>Claim ID:</label>
+            <input type="text"  formControlName="crId" class="form-control" maxlength="20">
+            <!-- <div *ngIf= "!crId1?.valid && (crId1?.dirty || crId1?.touched)">
+                <small *ngIf= "crId1?.errors?.required">
+                  <span style="color:red">This Field Is A Mandatory</span>
+                </small>
+            </div> -->
+        </div>
+
+
+        <!-- <div class="form-group">
+            <label>Request Date:</label>
+            <input type="datetime" formControlName="requestDate" class="form-control" maxlength="20">
+            <div *ngIf= "!requestDate1?.valid && (requestDate1?.dirty || requestDate1?.touched)">
+                <small *ngIf= "requestDate1?.errors?.required">
+                  <span style="color:red">This Field Is A Mandatory</span>
+                </small>
+            </div>
+        </div>  -->
+
+
+        <div class="form-group">
+            <label>Give Description:</label>
+            <textarea class="form-control" formControlName="reason" rows="3" maxlength="50"></textarea>
+            <div *ngIf= "!reason1?.valid && (reason1?.dirty || reason1?.touched)">
+                <small *ngIf= "reason1?.errors?.required">
+                  <span style="color:red">This Field Is A Mandatory</span>
+                </small>
+            </div>
+        </div>
+
+
+        <div>
+            <label for="Reason">Select The Reason:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select class="form-control" id="Reason" class ="mdb-select md-form" formControlName="reason">
+            <option *ngFor="let reason of reasons">{{reason}}</option>
+            </select> 
+
+        </div>
+
+        <div class="form-group">
+            <label>Enter Youe Damagr Proof URL:</label>
+            <input type="file" formControlName="damageProofUrl" class="form-control">
+            <div *ngIf= "!damageProofUrl1?.valid && (damageProofUrl1?.dirty || damageProofUrl1?.touched)">
+                <small *ngIf= "damageProofUrl1?.errors?.required">
+                  <span style="color:red">This Field Is A Mandatory</span>
+                </small>
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+            <label>Approval Status:</label>
+            <input type="text" formControlName="approval" class="form-control">
+            <div *ngIf= "!approval1?.valid && (approval1?.dirty || approval1?.touched)">
+                <small *ngIf= "approval1?.errors?.required">
+                  <span style="color:red">This Field Is A Mandatory</span>
+                </small>
+            </div>
+        </div> -->
+
+
+        <div class="form-group">
+            <label>Expected Amount:</label>
+            <input type="number" formControlName="claimAmount" class="form-control">
+            <div *ngIf= "!claimAmount1?.valid && ( claimAmount1?.dirty || claimAmount1?.touched)">
+                <small *ngIf=" claimAmount1?.errors?.required">
+                  <span style="color:red">This Field Is A Mandatory</span>
+                </small>
+            </div>
+        </div>
+        
+        <button class="button" type="submit" (ngsubmit)="Onsubmit()"><a routerLink="ClaimView" >Submit!</a></button>
+    </form>
+</div>
